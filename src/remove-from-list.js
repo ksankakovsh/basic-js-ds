@@ -22,11 +22,30 @@ const { NotImplementedError } = require('../extensions/index.js');
  *   }
  * }
  */
-function removeKFromList(/* l, k */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+class LinkedList {
+  constructor() {
+    this.head = null;
+    this.length = 0;
+  }
+remove(k) {
+  let node = this.head;
+  if (node == null || node == undefined) {
+    return;
+  }
+  
+  while (node !== null) {
+      if (node.next !== null && node.next.k === k) {
+          node.setNext(node.next.next);
+          return;
+      }
+      node = node.next;
+  }
 }
-
+}
+function removeKFromList(l, k) {
+  list.remove(k);
+}
+let list = new LinkedList();
 module.exports = {
   removeKFromList
 };
